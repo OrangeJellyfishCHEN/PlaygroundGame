@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>游戏策划书第一版</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9943092a-785e-425c-a852-61468c3e6ee6" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎢</span></div><h1 class="page-title">游戏策划书第一版</h1></header><div class="page-body"><nav id="3a949a7c-7e25-4fc7-a882-935cf74de860" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#7467f920-fb5b-40ff-9953-b632264ab9de">游戏简介</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5842f7b1-6392-4a7f-8c29-45d070762f33">游戏策划（General）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1a9dcb05-ab8d-44ae-b6c0-e49c73b3d9d0">主菜单</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#365ecbff-90ad-4773-b87c-c41ddd422953">关卡策划1.0</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c55c3c1a-7c04-4667-9263-3b6c1c1831d8">关卡通用UI（first layer）</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#379db113-3245-4040-b148-3b141392bb47">关卡0 - “残酷的天堂” </a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#81c20f64-8b05-4cd4-a9fe-ae7c98ae7fb0">关卡1 - “温柔的奈落”</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bd91a401-112e-4a29-bbfb-a808601eb18c">关卡demo1 - “星夜的海月”</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#eb866fe3-ac3d-41fa-b195-bc41d442a88a">关卡demo2 - “404NotFound”</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a69bda8c-839a-4508-89e1-c1fab614673f">关卡demo3 - “电影落幕”</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#92f25ff8-05fb-4fce-b9d9-b914e111dc9d">关卡 -1 - “WelcomeBack”</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#6f732988-6809-44d5-a315-192c7ea2f922">开发流程demo预想</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#96d52750-fac0-4934-a139-78f80f08a118">发行预想</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#08a2d2bf-c523-42be-ab13-cfef0f731681">声明</a></div></nav><h1 id="7467f920-fb5b-40ff-9953-b632264ab9de" class="">游戏简介</h1><p id="6fcbad2b-66df-4d02-baf5-a7125b886c76" class="">类型：定义为开放世界+肉鸽</p><p id="9ddb0ecc-916e-4123-b148-7157098069b0" class="">灵感来源于后室（backrooms），意在我们会从现实中意想不到地切入其他空间中，也许是做梦，也许是走入平时没出现过的门，谁知道呢？</p><p id="e3aa56b2-67ec-4e7c-a993-a8cecdd8b0f6" class="">切入的第一个场景（关卡0）是固定的。之后切入的关卡1也是固定的，但是此后切入的关卡就是随机的了（但不会回到关卡0或关卡1）。</p><p id="24ebf7e3-d242-4360-945d-eb817bdd3f2f" class="">每一个关卡对应一个世界，每一个世界都会有一个任务需要我们完成，我们也会在不同的世界随着时间的流逝变为不同的形态。</p><p id="5271a673-d7ef-4599-a28f-3a0db404fc97" class="">如果有幸切入关卡-1，我们将回到现实。</p><h1 id="5842f7b1-6392-4a7f-8c29-45d070762f33" class="">游戏策划（General）</h1><p id="95cf7568-8300-4f41-b1a9-3d7d764385b4" class="">暂定为第一人称，且可以被镜面反射自己的身体。一开始可以选择自己是男或女，后续有些关卡会alternate。</p><p id="b3944c9d-f44a-49e4-8cca-6872a33d408b" class="">关卡可以改变我们的身体。</p><p id="f9bacb2c-291f-429d-8763-f994ca0cdb23" class="">打开游戏后先加一段导入动画。</p><figure id="b2dac91d-5da3-42e3-ab19-677b235c316f" class="image"><a href="%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E4%B9%A6%E7%AC%AC%E4%B8%80%E7%89%88%209943092a785e425ca85261468c3e6ee6/Untitled.gif"><img style="width:2360px" src="%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E4%B9%A6%E7%AC%AC%E4%B8%80%E7%89%88%209943092a785e425ca85261468c3e6ee6/Untitled.gif"/></a></figure><h2 id="1a9dcb05-ab8d-44ae-b6c0-e49c73b3d9d0" class="">主菜单</h2><p id="00b7e962-3f38-4084-9a19-29b06bab7559" class="">options:</p><p id="76951353-08fd-49e2-a89c-cae1c7e59566" class="">→ Start from saves</p><p id="546740fa-735b-4ea6-8ff3-514965f1f97f" class="">→ Start from 0</p><p id="5afbc640-1f4f-4c24-962e-14f96a230eea" class="">→ Exit (其实没办法exit，会抹掉存档从非0非1的关卡开始)</p><p id="56aa96a5-bbdc-4edd-9551-90851a1ab0b0" class="">→ x (this is the true exit)</p><h1 id="365ecbff-90ad-4773-b87c-c41ddd422953" class="">关卡策划1.0</h1><h2 id="c55c3c1a-7c04-4667-9263-3b6c1c1831d8" class="">关卡通用UI（first layer）</h2><ul id="afb13124-eb7b-47e7-b0a3-cc074ab218bc" class="bulleted-list"><li style="list-style-type:disc">边栏<p id="44561e30-c0e8-4416-ab4e-4003e634889a" class="">→ 打开为exit（与主页的exit一致）</p><p id="da142f99-890b-4296-aad2-fee9b3198c23" class="">→ randomize (随机降临在任意关卡任意的位置（非0非1）)</p><p id="f52578c9-f518-4190-9e27-5dfa228e4a0c" class="">→ 打开边栏自动暂停 所以这里有一个继续的按键</p></li></ul><h2 id="379db113-3245-4040-b148-3b141392bb47" class="">关卡0 - “残酷的天堂” </h2><p id="e3d175ee-799c-4d2d-8abe-a9119889f2f5" class="">玩家第一次进入的主界面。是一个类似于天空之镜的地方（初始为纯蓝色（logo蓝））。参考：</p><figure id="1d151900-af47-4ce9-bb48-9c31dd992066" class="image"><a href="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb"><img style="width:528px" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb"/></a></figure><p id="8f588ad1-c7aa-4ebb-a864-94acd4f9e0b9" class="">玩家会进入的点是固定的 → 在（0，0）位置，有一个巨大的游乐设施，会降临在正中心的板上。下去可以选择滑滑梯，绳索，楼梯。<div class="indented"><ul id="ace4f7d5-fc56-4ebd-9745-5b8de2fc7859" class="bulleted-list"><li style="list-style-type:disc">滑滑梯：会回到(0,0)位置</li></ul><ul id="9315fe46-d9b0-4b20-954d-8d1c24b50bcf" class="bulleted-list"><li style="list-style-type:disc">绳索 或 楼梯：正常下去，但是楼梯下去危险度会增加，天空会变成夕阳色（logo橘）。</li></ul></div></p><p id="c4a2cde3-f70d-4d8b-9771-b18eefede663" class="">下去后是在水中行进，这个世界的任务是找到钥匙（随机出现在任意地点，如果每三十分钟无法找到将会变换位置）并不被陷阱杀死（陷阱设计还在考虑中）。找到钥匙会自动通关。</p><p id="c7a425e7-c9a0-4adb-9ed1-3f5b4178b26c" class="">初步思考的陷阱是洞，会有99%的概率回到起点，也有1%的概率会直接通关。</p><p id="8ed9649c-dfc0-46f1-b473-b074e086229b" class="">但是通过陷阱通关会获得成就。</p><p id="b014e7bc-88d4-4ba4-a3c0-14f9174fb6ff" class="">会有一个很小型的地图，来提醒周边的陷阱以及钥匙。</p><h2 id="81c20f64-8b05-4cd4-a9fe-ae7c98ae7fb0" class="">关卡1 - “温柔的奈落”</h2><p id="93829d97-18e8-478d-8df9-d974b02f4719" class="">形态为心脏内部（需咨询医学生）。会有一只手伸入，需要逃亡。此关卡有怪（未设计）。</p><p id="db16c5a4-4f65-4e96-83e2-163d2f65e9a1" class="">初次进入会出现在任意安全地点。会出现选项：是否逃避？如果选择“是”，则会切换到本关卡的其他位置，如果选“不是”，会有80%的几率传送到关卡0，20%的几率传送到关卡其他（非0非1）（会记录非正常切入++），如果关掉，则会直接terminate整个游戏。</p><p id="75644ede-bf40-4248-95c6-51efb2a2645d" class="">初步想法是一片黑暗，需要找到点亮的点，点亮后大手+怪物启动开始追杀，同时传送至其他关卡的点会随机出现在地图的任意安全位置。</p><h2 id="bd91a401-112e-4a29-bbfb-a808601eb18c" class="">关卡demo1 - “星夜的海月”</h2><p id="cbf3ac98-b73b-4084-bb72-a0449b64d6b3" class="">天空盒为流转的星空（没有月亮！）。主建筑为玻璃墙水族馆。为一个圆形穹顶大厅在中心，有四条路可以走，四条大路有俩个小分叉。</p><ul id="1a565d0b-4bfc-4406-a9f6-910c7dd54470" class="bulleted-list"><li style="list-style-type:disc">大厅<ul id="90c3acaa-8c90-4f1b-9ed5-650674f17d58" class="bulleted-list"><li style="list-style-type:circle">星象仪</li></ul></li></ul><ul id="46f013f8-cd7e-4e16-86b1-ebb543d9b0cf" class="bulleted-list"><li style="list-style-type:disc">走廊<ul id="6a0ecfbd-e35a-460f-af67-71bdbd0a230d" class="bulleted-list"><li style="list-style-type:circle">游动的水母（品种 颜色不一样）</li></ul></li></ul><ul id="8c46a28b-0503-4caa-80d5-0bcc5508019f" class="bulleted-list"><li style="list-style-type:disc">路1:<ul id="73e7ccae-564b-44b4-a749-6daee822be2e" class="bulleted-list"><li style="list-style-type:circle">分叉1: 鲸鱼</li></ul><ul id="470017f4-730a-4085-9a94-d1fea0ce2c3c" class="bulleted-list"><li style="list-style-type:circle">分岔2: 企鹅</li></ul></li></ul><ul id="2d381b5d-841d-43a4-a18a-c8ca91fa919e" class="bulleted-list"><li style="list-style-type:disc">路2:<ul id="c215eb61-8a69-45d5-8a8b-c51b7e2836ca" class="bulleted-list"><li style="list-style-type:circle">鲨鱼</li></ul><ul id="475d56e7-9e79-4f66-8939-22c72bdaf6b2" class="bulleted-list"><li style="list-style-type:circle">珊瑚，海马，海星，观赏鱼</li></ul></li></ul><ul id="7740fd12-0f92-47ec-aedf-5034b814a6ed" class="bulleted-list"><li style="list-style-type:disc">路3:<ul id="dff4a00a-6e11-44eb-a3a5-f94e13464af2" class="bulleted-list"><li style="list-style-type:circle">海豚（表演）</li></ul><ul id="c9b13ce0-34c1-443b-b009-807cc97743f2" class="bulleted-list"><li style="list-style-type:circle">电鳗</li></ul></li></ul><ul id="162f21de-bb5b-45e6-b6bc-f6ae7ffbf735" class="bulleted-list"><li style="list-style-type:disc">路4:<ul id="5d3d5f90-92ba-414b-8a59-2f3d8fe01bcb" class="bulleted-list"><li style="list-style-type:circle">金鱼</li></ul><ul id="0df5d410-a7b5-4757-b495-5904d204deda" class="bulleted-list"><li style="list-style-type:circle">蝴蝶（？）</li></ul></li></ul><p id="49302ef4-eb25-4986-82c2-7df0e491a7c9" class="">玩法还没想好 单纯想做是因为觉得很美。</p><p id="5bdb26aa-8d91-47c7-93c8-4a96bc0e71a9" class="">切出点also为随意。</p><h2 id="eb866fe3-ac3d-41fa-b195-bc41d442a88a" class="">关卡demo2 - “404NotFound”</h2><p id="a12dd371-1d73-4a2d-a846-857a2e2f3851" class="">一个很大的白色屋子（可以认为是天空盒为白色），随处可见的电脑屏幕和贴纸。</p><p id="bc92d61c-a8a4-4f44-a145-60de03e16941" class="">任务是贴贴纸相关。只有一个电脑可以操控，操控后关卡名称会变成200Accept。屋子变成黑色。</p><p id="7503fe54-70a7-47fc-af93-2eab37596b04" class="">没想好，just a demo。</p><p id="56c8377e-0371-498c-8f7b-afc621304812" class="">电脑屏幕里的东西是简单的文字，可以循环播放，大概是一些开发组喜欢的东西。</p><h2 id="a69bda8c-839a-4508-89e1-c1fab614673f" class="">关卡demo3 - “电影落幕”</h2><p id="de17a1ea-47e0-48c7-9912-08197010f928" class="">场景为电影院，电影院是谢幕状态。需要让电影院重新进入播放状态。</p><p id="2df85c88-3c3e-438b-a07a-21b445a9de6c" class="">末世电影院，很多老鼠，青苔，还有死人骨头。</p><p id="16b69240-aee6-4c6e-89a6-835407106798" class="">进入播放后会播放一些有名电影的neta。然后传送点会出现在任意位置。</p><p id="4a66792b-ec2e-4bce-9ef5-fc115041f854" class="">找到爆米花会获得成就。</p><p id="5ff5f1e3-82a0-4d88-b346-6faf3244b0cc" class="">找到树枝会获得另一个成就。</p><p id="ff7332b5-644a-4985-a3e9-4d69b41aeb7e" class="">不可以踩死老鼠哦。</p><h2 id="92f25ff8-05fb-4fce-b9d9-b914e111dc9d" class="">关卡 -1 - “WelcomeBack”</h2><p id="465806e8-501f-46e3-b083-1d8ac02e827e" class="">回到现实关卡，但是也可以选择不回。</p><p id="804627af-0f35-4a2e-b105-d2911c3667d4" class="">大致想法是一个高塔，但是是颠倒过来的，看似是在向上，其实是在向下。需要意识到这一点才能回到现实。</p><p id="d8898589-67d0-4363-870b-92263273d138" class="">任务是爬到高塔底部（对，不是顶部）。底部会出现一个电脑屏CLI：问你一些问题，然后选择回到现实或否。</p><p id="211ff0a0-f911-4198-aa28-547204d51a38" class="">真的能回到现实吗？其实是错的，只有0.05%的概率能terminate this game。</p><p id="2acdfcb1-87da-491c-a307-2fa1770709cf" class="">其余99%进入虚假的现实，0.05%进入其他关卡。</p><h2 id="6f732988-6809-44d5-a315-192c7ea2f922" class="">开发流程demo预想</h2><p id="10156c1f-2717-45ea-8484-98766b47d5ba" class="">使用Unity，先用现成模型。</p><ul id="2e3f1e8f-de0d-4e54-871c-010a67b524f7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">首先做关卡0 → 关卡1 → 关卡-1+主界面的demo</span></li></ul><h1 id="96d52750-fac0-4934-a139-78f80f08a118" class="">发行预想</h1><p id="975dfd3b-6afc-4996-a47d-18cceff15e57" class="">先在steam上免费发一下demo</p><h1 id="08a2d2bf-c523-42be-ab13-cfef0f731681" class="">声明</h1><p id="ab2411a0-78c8-4ebc-b4cd-ad6b6ef4926e" class="">一切均由Xinyi Chen创作于Dec 2022 at Sydney</p><p id="7cf6f8c8-fa19-4a59-a2ed-e0870e68302f" class="">
+</p></div></article></body></html>
